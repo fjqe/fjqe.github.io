@@ -1,33 +1,3 @@
-if not game:IsLoaded() then game.Loaded:Wait() end
-
-----------------------some IY funcs (just clipboard ig)
-function missing(t, f, fallback)
-	if type(f) == t then return f end
-	return fallback
-end
-
-local everyClipboard = missing("function", setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set))
-
-function toClipboard(txt)
-	if everyClipboard then
-		everyClipboard(tostring(txt))
-		notif("copied to clipboard", "clipboard")
-	else
-		notif("your exploit doesn't have the ability to use the clipboard", "clipboard")
-	end
-end
-
-local fSignal = missing("function", firesignal)
-
-function fireSig(signal, args:table)
-    if fSignal then
-        fSignal(signal, args)
-    else
-        notif("your exploit doesn't have the ability to use this function.", "firesignal")
-    end
-end
-
---------------------------------------------------------
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
